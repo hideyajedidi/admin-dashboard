@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+}
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+li {
+    list-style: none;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template: 17vh 83vh / 20vw 80vw;
+    grid-template-areas: 
+    "sidebar header"
+    "sidebar main";
+}
+
+/* Side Navigation Menu */
+
+#sidebar {
+    background-color: #11d8aa;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    grid-area: sidebar;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: repeat(3, min-content);
+    row-gap: 50px;
+    column-gap: 10px;
+    padding: 15px 15px 0 15px;
+}
+
+#logo {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+#logo h1 {
+    font-size: 2.5rem;
+    align-self: center;
+}
+
+#logo img {
+    width: 50px;
+    height: 50px;
+    justify-self: center;
+}
+
+#main-nav {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: subgrid;
+    row-gap: 1.5rem;
+}
+
+#main-nav li, #admin-nav li {
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+#main-nav li:hover, #admin-nav li:hover {
+    background-color: #68ebe5;
+    cursor: pointer;
+}
+
+#admin-nav {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    display: grid;
+    grid-template-columns: subgrid;
+    row-gap: 1.5rem;
+}
+
+.sidebar-icon {
+    width: 1.7rem;
+    height: 1.7rem;
+    justify-self: center;
+}
+
+.white-fill {
+    filter: invert(1);
+}
+
+/* Header */
+
+header {
+    background-color: white;
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr 2fr;
+    padding: 20px 40px;
+    gap: 10px;
+    
+}
+
+#header-nav {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;  
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+#search {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    align-items: center;
+    column-gap: 20px;
+}
+
+#search img {
+    width: 25px;
+    height: 25px;
+}
+
+input[type="search"] {
+    border: none;
+    background-color:rgba(230, 228, 228, 0.911);
+    height: 2.5rem;
+    width: 40vw;
+    font-size: 1rem;
+    border-radius: 17px;
+
+}
+
+#profile-shortcuts {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    column-gap: 20px;
+    align-items: center;
+    justify-content: end;
+}
+
+#profile-shortcuts p {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+#notifications-icon {
+    width: 30px;
+    height: 30px;
+}
+
+#notifications-icon:hover, .profile-img:hover {
+    cursor: pointer;
+    filter:opacity(.5);
+}
+
+#notifications-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.profile-img {
+    border-radius: 50%;
+}
+
+.small {
+    width: 40px;
+    height: 40px;
+}
+
+.medium {
+    width: 60px;
+    height: 60px;
+}
+
+.large {
+    width: 75px;
+    height: 75px;
+}
+
+#header-main {
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+#profile-card {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 5px;
+    align-content: center;
+
+}
+
+#profile-card img {
+    grid-row: 1 / 3;
+    grid-column: 1 /2;
+    
+}
+
+#greeting {
+    grid-row: 1 / 2;
+    grid-template-columns: 2 / 3;
+    align-self: end;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#profile-name {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    font-size: 2rem;
+}
+
+#profile-controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: end;
+}
+
+button {
+    background-color: #11d8ad;
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 8vw;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+}
+
+button:hover {
+    background-color: #68eba7;
+    cursor: pointer;
+}
+
+/* Main Content*/
+.section-title {
+    font-size: 1.5rem;
+}
+
+#main-content {
+    background-color: rgba(230, 228, 228, 0.911);
+    grid-area: main;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 
+    "project announce"
+    "project trend";
+    row-gap: 10px;
+    column-gap: 20px;
+    padding: 20px 15px;
+}
+
+#your-projects {    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30px repeat(3, 1fr);
+    grid-area: project;
+    gap: 20px;
+}
+
+#your-projects .section-title {
+    grid-column: 1 / 3;
+    align-self: end;
+}
+
+.project {
+    border-left: 10px solid #42ffec;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    padding: 22px;
+    align-self: center;
+    justify-self: center;
+}
+
+.project-text {
+    grid-row: 1 / 2;
+    font-size: 1.2rem;
+}
+
+.project-text h4 {
+    font-size: 1.6rem;
+}
+
+.project-text h4:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.card-icons {
+    grid-row: 2 / 3;
+    align-self: center;
+    justify-self: end;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 20px;
+}
+
+.project-control {
+    width: 30px;
+    height: 30px;
+    filter: invert(14%) sepia(86%) saturate(4196%) hue-rotate(328deg) brightness(93%) contrast(97%); /* Change color to #D81159 Generated by: https://change-svg-color.vercel.app/ */
+}
+
+#announcements {
+    grid-area: announce;
+    display: grid;
+    grid-template: max-content auto / 1fr;
+    grid-template-areas: 
+    "subtitle"
+    "prv";
+    gap: 5px;
+}
+
+#announcements .subtitle {
+    grid-area: subtitle;
+}
+
+#announcement-previews {
+    font-size: 1.1rem;
+    background-color: white;
+    border-radius: 10px;
+    grid-area: prv;
+    padding: 20px;
+    display: grid;
+}
+
+.preview {
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.preview .title {
+    align-self: end;
+}
+
+hr {
+    height: 1px;
+}
+
+#trending {
+    grid-area: trend;
+    display: grid;
+    grid-template-rows: max-content auto;
+    gap:5px;
+}
+
+#trending-projects {
+    background-color: white;
+    border-radius: 10px;
+    display: grid;
+    padding: 10px;
+    font-size: 1.1rem;
+}
+
+.trending-project {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 3fr;
+    grid-template-areas: 
+    "face username"
+    "face proj";
+}
+
+.trending-project .profile-img {
+    grid-area: face;
+}
+
+.trending-project p.tag {
+    grid-area: username;
+    align-self: end;
+    font-weight: bold;
+}
+
+.trending-project p.title {
+    grid-area: proj;
+}
